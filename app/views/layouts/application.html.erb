@@ -2,9 +2,11 @@
 <html>
   <head>
     <title>Bookers2</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1">
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+
+    <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1">
 
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -12,16 +14,16 @@
 
   <body>
     <header>
-      <nav class="navber navber-expand-lg navber-dark bg-dark">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-          <a class="navber-brand" href="/">
+          <a class="navbar-brand" href="/">
             <span>Bookers</span>
           </a>
-          <button class="navber-toggler" type="button" date-toggle="collapse" date-target="#navberNavDropdown" aria-controls="navberNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navber-toggler-icon"></span>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navber-collapse" id="navberNavDropdown">
-            <ul class="navber-nav ml-auto">
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ml-auto">
               <% if user_signed_in? %>
               <li>
                 <a class="nav-link text-light" href="/users/:id">
@@ -42,7 +44,7 @@
                 </a>
               </li>
               <li>
-                <a class="nav-link text-light" rel="nofollow" date-method="delete" href="/users/sign_out">
+                <a class="nav-link text-light" rel="nofollow" data-method="delete" href="/users/sign_out">
                   <i class="fas fa-sign-out-alt"></i>
                   Log out
                 </a>
@@ -78,6 +80,7 @@
         </div>
       </nav>
     </header>
+
     <%= yield %>
   </body>
 </html>
