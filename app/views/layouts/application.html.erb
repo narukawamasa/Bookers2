@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>Bookers2</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -11,6 +11,73 @@
   </head>
 
   <body>
+    <header>
+      <nav class="navber navber-expand-lg navber-dark bg-dark">
+        <div class="container">
+          <a class="navber-brand" href="/">
+            <span>Bookers</span>
+          </a>
+          <button class="navber-toggler" type="button" date-toggle="collapse" date-target="#navberNavDropdown" aria-controls="navberNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navber-toggler-icon"></span>
+          </button>
+          <div class="collapse navber-collapse" id="navberNavDropdown">
+            <ul class="navber-nav ml-auto">
+              <% if user_signed_in? %>
+              <li>
+                <a class="nav-link text-light" href="/users/:id">
+                  <i class="fas fa-home"></i>
+                  Home
+                </a>
+              </li>
+              <li>
+                <a class="nav-link text-light" href="/users">
+                  <i class="fas fa-users"></i>
+                  Users
+                </a>
+              </li>
+              <li>
+                <a class="nav-link text-light" href="/books">
+                  <i class="fas fa-book-open"></i>
+                  Books
+                </a>
+              </li>
+              <li>
+                <a class="nav-link text-light" rel="nofollow" date-method="delete" href="/users/sign_out">
+                  <i class="fas fa-sign-out-alt"></i>
+                  Log out
+                </a>
+              </li>
+              <% else %>
+              <li>
+                <a class="nav-link text-light" href="/">
+                  <i class="fas fa-home"></i>
+                  Home
+                </a>
+              </li>
+              <li>
+                <a class="nav-link text-light" href="/homes/about">
+                  <i class="fas fa-link"></i>
+                  About
+                </a>
+              </li>
+              <li>
+                <a class="nav-link text-light" href="/users/sign_up">
+                  <i class="fas fa-user-plus"></i>
+                  Sign up
+                </a>
+              </li>
+              <li>
+                <a class="nav-link text-light" href="/users/sign_in">
+                  <i class="fas fa-sign-in-alt"></i>
+                  Log in
+                </a>
+              </li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
     <%= yield %>
   </body>
 </html>
