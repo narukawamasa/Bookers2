@@ -1,5 +1,5 @@
         <h2>User info</h2>
-        <%= image_tag user.get_profile_image(100, 100) %>
+        <%= image_tag user.get_profile_image(100,100) %>
         <table class ="table">
           <tbody>
             <tr></tr>
@@ -15,8 +15,8 @@
         </table>
           <div class="row">
             <th>
-              <a class="btn btn-outline-secondary btn-block" href="/users/<%= current_user.id %>/edit">
+              <%= link_to edit_user_path(user), class:"btn btn-outline-secondary btn-block" do %>
                 <i class="fas fa-user-cog"></i>
-              </a>
+              <% end %>
             </th>
           </div>
