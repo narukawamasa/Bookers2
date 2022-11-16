@@ -13,6 +13,7 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    flash[:notice] = "You have updated user successfully."
   end
 
   def update
